@@ -2,8 +2,10 @@
   "name": "react-diagram-visualizer",
   "version": "0.1.0",
   "description": "Turn JSON schemas into interactive diagrams",
-  "main": "public/index.html",
+  "type": "module",
   "scripts": {
+    "dev": "parcel public/index.html",
+    "build": "parcel build public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
