@@ -4,6 +4,7 @@
   "description": "Turn JSON schemas into interactive diagrams",
   "type": "module",
   "scripts": {
+    "predev": "rimraf .parcel-cache dist",
     "dev": "parcel public/index.html",
     "build": "parcel build public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,8 +39,10 @@
     "eslint": "^9.30.1",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.3.0",
+    "new-component": "^6.0.0",
     "parcel": "^2.15.4",
-    "prettier": "3.6.2"
+    "prettier": "3.6.2",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "@xyflow/react": "^12.8.1",
