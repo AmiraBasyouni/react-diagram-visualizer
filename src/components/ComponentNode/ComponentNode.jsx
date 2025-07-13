@@ -10,7 +10,7 @@ function ComponentNode({ data: component }) {
       <br />
       <h3>INTERNAL</h3>
       {component.internal.states.map((state) => (
-        <p key={state}> {`- ${state}`} </p>
+        <p key={state}> {`- [${state}]`} </p>
       ))}
       {component.internal.functions.map((func) => (
         <p key={func}> {`- ${func}()`}</p>
