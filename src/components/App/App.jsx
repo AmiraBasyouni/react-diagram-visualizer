@@ -1,8 +1,13 @@
 import React from "react";
+import LayoutProvider from "../LayoutProvider";
 import Flow from "../Flow";
 
 function App() {
-  return <Flow />;
+  return (
+    <LayoutProvider>
+      <Flow />
+    </LayoutProvider>
+  );
 }
 
 export default App;
