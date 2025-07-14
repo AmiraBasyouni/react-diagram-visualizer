@@ -8,7 +8,8 @@
     "dev": "parcel public/index.html",
     "build": "parcel build public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "./scripts/generate-commit-msg.sh"
+    "commit": "./scripts/generate-commit-msg.sh",
+    "new-component": "new-component"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
   },
   "dependencies": {
     "@xyflow/react": "^12.8.1",
+    "elkjs": "^0.10.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }
