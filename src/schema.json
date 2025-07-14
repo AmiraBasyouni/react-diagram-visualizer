@@ -2,6 +2,40 @@
   "filename": "AppPlayground.js",
   "components": [
     {
+      "name": "Header",
+      "description": "",
+      "descendants": [],
+      "internal": {
+        "states": [],
+        "functions": []
+      },
+      "external": {
+        "props": [],
+        "context": [],
+        "constants": []
+      },
+      "location": {
+        "line": 6
+      }
+    },
+    {
+      "name": "Content",
+      "description": "",
+      "descendants": [],
+      "internal": {
+        "states": [],
+        "functions": []
+      },
+      "external": {
+        "props": [],
+        "context": [],
+        "constants": []
+      },
+      "location": {
+        "line": 10
+      }
+    },
+    {
       "name": "App",
       "description": "",
       "descendants": [
@@ -9,16 +43,14 @@
           "name": "Header",
           "sourceFile": "AppPlayground.js",
           "location": {
-            "line": 28,
-            "column": 6
+            "line": 6
           }
         },
         {
           "name": "Content",
           "sourceFile": "AppPlayground.js",
           "location": {
-            "line": 33,
-            "column": 8
+            "line": 10
           }
         }
       ],
@@ -63,16 +95,7 @@
         "constants": []
       },
       "location": {
-        "start": {
-          "line": 8,
-          "column": 0,
-          "index": 217
-        },
-        "end": {
-          "line": 37,
-          "column": 1,
-          "index": 1023
-        }
+        "line": 14
       }
     }
   ]
