@@ -1,9 +1,24 @@
 import React from "react";
+import { LayoutContext } from "../LayoutProvider";
 import { Handle } from "@xyflow/react";
 
 function ComponentNode({ data: component }) {
+  const sectionRef = React.useRef();
+  const { isLayoutReady, setLayoutIsReady, setNodeDimension } =
+    React.useContext(LayoutContext);
+  React.useLayoutEffect(() => {
+    if (sectionRef.current) {
+      const { width, height } = sectionRef.current.getBoundingClientRect();
+      setNodeDimension(component.id, width, height);
+      console.log(`isLayoutReady: ${isLayoutReady()}`);
+
+      if (isLayoutReady()) {
+        setLayoutIsReady(true);
+      }
+    }
+  }, []);
   return (
-    <section>
+    <section ref={sectionRef}>
       <h2>{component.name}</h2>
       <br />
       {component.description}
