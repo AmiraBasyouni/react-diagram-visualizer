@@ -35,19 +35,20 @@ initialEdges.forEach((edge) => {
   });
 });
 
-//console.log(graph);
+//PRINT TO CONSOLE: the elk graph
 elk.layout(graph).then(console.log).catch(console.error);
 
 //CONSTRUCT nodeDimension data: (width and height)
 const nodeDimension = new Set();
 function setNodeDimension(component_id, w, h) {
+  // each component node tries to find itself in graph.children
   const element = graph.children.filter((node) => {
     return node.id === component_id;
   })[0];
+  // and update its dimensions
   element.width = w;
   element.height = h;
   nodeDimension.add(element);
-  //console.log(Array.from(nodeDimension));
 }
 //-----------------------------------------------------------
 
@@ -62,17 +63,10 @@ function LayoutProvider({ children }) {
 
   //BUILD diagram layout with elk after node dimensions are collected
   function useLayout(setNodes) {
-    console.log("useLayout Rendered");
     React.useLayoutEffect(() => {
       if (!layoutIsReady) {
         return;
       }
-      console.log("useLayoutEffect Rendered");
-      //console.log(graph.children);
-      //console.log(Array.from(nodeDimension));
-      //graph.children = Array.from(nodeDimension);
-      //console.log(graph.children);
-      //console.log(graph.edges);
 
       elk
         .layout(graph)

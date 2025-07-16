@@ -11,13 +11,13 @@ function ComponentNode({ data: component }) {
     if (sectionRef.current) {
       const { width, height } = sectionRef.current.getBoundingClientRect();
       setNodeDimension(component.id, width, height);
-      console.log(`isLayoutReady: ${isLayoutReady()}`);
 
       if (isLayoutReady()) {
         setLayoutIsReady(true);
       }
     }
   }, []);
+
   return (
     <section ref={sectionRef} className={styles.wrapper}>
       <h2 className={styles.title}>{component.name}</h2>
@@ -25,7 +25,11 @@ function ComponentNode({ data: component }) {
         <p className={styles.content}>{component.description}</p>
       )}
 
-      <h3 className={styles.subtitle}>INTERNAL</h3>
+      {(component.internal.states.length > 0 ||
+        component.internal.functions.length > 0) && (
+        <h3 className={styles.subtitle}>INTERNAL</h3>
+      )}
+
       {component.internal.states.map((state) => (
         <p key={state} className={styles.content}>
           {" "}
@@ -38,7 +42,12 @@ function ComponentNode({ data: component }) {
           {`- ${func}()`}
         </p>
       ))}
-      <h3 className={styles.subtitle}>EXTERNAL</h3>
+
+      {(component.external.props.length > 0 ||
+        component.external.context.length > 0) && (
+        <h3 className={styles.subtitle}>EXTERNAL</h3>
+      )}
+
       {component.external.props.map((prop) => (
         <p key={prop} className={styles.content}>
           {" "}
@@ -50,6 +59,7 @@ function ComponentNode({ data: component }) {
           <p key={value} className={styles.content}>{`+C ${value}`}</p>
         )),
       )}
+
       <Handle type="source" position="bottom" />
       <Handle type="target" position="top" />
     </section>
