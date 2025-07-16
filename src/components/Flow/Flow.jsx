@@ -32,7 +32,7 @@ function Flow() {
           edges={initialEdges}
           nodeTypes={nodeTypes}
         >
-          <Background variant="lines" gap={12} size={1} />
+          <Background variant="lines" />
         </ReactFlow>
       </div>
     </ReactFlowProvider>
