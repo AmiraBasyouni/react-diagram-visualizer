@@ -22,6 +22,11 @@ components.forEach((component) => {
 const initialEdges = [];
 components.forEach((component) => {
   component.descendants.forEach((descendant) => {
+    if (!descendant.location.line) {
+      throw new Error(
+        `ERROR: location of the descendant '${descendant.name}' does not exist. Before building your schema, check if ${descendant.name} has been properly declared within your source code ${filename} (not only imported)`,
+      );
+    }
     initialEdges.push({
       id: `${component.name}->${descendant.name}`,
       source: `${component.name}@${filename}:${component.location.line}`,
