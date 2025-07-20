@@ -5,12 +5,12 @@ This file outlines the phases and tasks for building the `react-diagram-visualiz
 ## MVP: Visualize a Schema
 Goal: Take a `schema.json` file as input and render a basic diagram using [React Flow](https://reactflow.dev/).
 ### Core Features:
-- [ ] Load schema from `public/schema.json`
-- [ ] Visualize components as nodes
-- [ ] Display internally defined states and functions
-- [ ] Display externally defined props and context
-- [ ] Basic styling and layout
-- [ ] Draw edges based on component hierarchy
+- [x] Load diagram nodes and edges using `schema.json`
+- [x] Visualize components as nodes
+- [x] Display internally defined states and functions
+- [x] Display externally defined props and context
+- [x] Basic styling and layout
+- [x] Draw edges based on component hierarchy
 
 
 ### Near-Term Goals
@@ -39,7 +39,7 @@ Features to explore in future versions or when transitioning to a full web app:
 ### 🔁 Next.js Migration Prep
 To ensure an easy migration from Parcel to Next.js in the future, we’re following these practices:
 - [x] All components use **CSS Modules**
-- [x] `schema.json` lives in the `public/` directory
+- [ ] `schema.json` will live in the `public/` directory
 - [x] No **Parcel-specific features** used (e.g. no custom transformers or entry points)
 - [x] App entry is designed to later move to `/src/app/page.js` (App Router structure)
 
