@@ -2,36 +2,37 @@ import schema from "./schema.json";
 import ComponentNode from "./components/ComponentNode";
 
 //-----------------------------------------nodes/edges logic
-const { filename, components } = schema;
+const components = schema;
 
 const position = { x: 0, y: 0 };
 
 const initialNodes = [];
-//schema.forEach( file =>
-components.forEach((component) => {
-  const id = `${component.name}@${filename}:${component.location.line}`;
+Object.entries(components).forEach(([componentID, component]) => {
   initialNodes.push({
-    id,
-    data: { id, ...component },
+    id: componentID,
+    data: { id: componentID, ...component },
     type: "component",
     position,
   });
 });
-//);
 
 const initialEdges = [];
-components.forEach((component) => {
-  component.descendants.forEach((descendant) => {
-    if (!descendant.location.line) {
-      throw new Error(
-        `ERROR: location of the descendant '${descendant.name}' does not exist. Before building your schema, check if ${descendant.name} has been properly declared within your source code ${filename} (not only imported)`,
+Object.entries(components).forEach(([componentID, component]) => {
+  component.descendants.forEach((descendantID) => {
+    /* if a descendant has an invalid file path, fail gracefully */
+    const filePath = descendantID.split("::")[1];
+    if (!filePath || filePath === "undefined" || filePath === "null") {
+      console.warn(
+        `react-diagram-visualizer: the file path of descendant "${descendantID}" whose parent is "${componentID}" is invalid. The descendant will be omitted from the diagram.`,
       );
+    } else {
+      /* otherwise, create an edge connecting the component with its descendant */
+      initialEdges.push({
+        id: `${componentID}->${descendantID}`,
+        source: componentID,
+        target: descendantID,
+      });
     }
-    initialEdges.push({
-      id: `${component.name}->${descendant.name}`,
-      source: `${component.name}@${filename}:${component.location.line}`,
-      target: `${descendant.name}@${descendant.sourceFile}:${descendant.location.line}`,
-    });
   });
 });
 
