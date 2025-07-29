@@ -71,12 +71,20 @@ Write simple tests to check if nodes and themes display correctly, using our tes
    git checkout -b fix-bug-header
    ```
 
-2. **Write clear commits**:
-   Example:`feat(App): implement React Flow visualization for component schema`
+2. **Write clear commit messages using [Conventional Commits](https://www.conventionalcommits.org/) style:**  
+   Use a prefix like `fix`, `feat`, or `docs`, followed by the scope (e.g., app, readme) and a brief description.
 
-3. **Push** and open a pull request.
+   Examples:
 
-4. Include **screenshots or schema output** if your change affects visualization or parsing.
+- `fix(layout): prevent node overlap in large diagrams`
+
+- `feat(app): add support for custom node styles`
+
+- `docs(readme): clarify theme customization steps`
+
+3. **Push** your branch and open a pull request on GitHub.
+
+4. Include **screenshots or GIFs** in your pull request if your changes affect the diagram’s appearance, layout, or interactions (e.g., new node styles or zoom behavior).
 
 ## Testing your Changes
 
