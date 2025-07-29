@@ -9,7 +9,9 @@
     "build": "parcel build public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "./scripts/generate-commit-msg.sh",
-    "new-component": "new-component"
+    "new-component": "new-component",
+    "lint": "npx eslint . --fix",
+    "format": "npx prettier . --write"
   },
   "repository": {
     "type": "git",
