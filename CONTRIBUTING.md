@@ -8,12 +8,13 @@ Thank you for your interest in contributing! 🎉
 1. Fork this repository
 
 - visit [`react-diagram-visualizer`](https://github.com/AmiraBasyouni/react-diagram-visualizer) and click on the button labeled "Fork"
-- alternatively, if you have gh, you can fork the repository using the command: 
-   ```bash
-   gh repo fork AmiraBasyouni/react-diagram-visualizer
-   ````
+- alternatively, if you have gh, you can fork the repository using the command:
+  ```bash
+  gh repo fork AmiraBasyouni/react-diagram-visualizer
+  ```
 
-2. Clone your fork  
+2. Clone your fork
+
    ```bash
    git clone https://github.com/<your-username>/react-diagram-visualizer.git
    ```
@@ -25,7 +26,8 @@ Thank you for your interest in contributing! 🎉
 
 ## How You Can Contribute
 
-We welcome:  
+We welcome:
+
 - **Bug fixes** - spotted something weird? Open an issue or submit a fix.
 - **Performance improvements** - optimize rendering for large React projects.
 - **UI/UX feedback** — Help make the tool more intuitive, especially for first-time users.
@@ -34,18 +36,21 @@ We welcome:
 - **Docs and examples** — Share diagrams from your projects to help others see the value.
 
 Please avoid:
+
 - Large refactors without discussion.
 - Adding unrelated dependencies.
 
 ## Proposing Changes
 
 Before starting major work:
+
 - **Open an issue** describing your proposal.
 - If relevant, share an example schema and how your change would improve the output.
 
 Small fixes (typos, minor code tweaks) can skip this step.
 
 ## Coding Standards
+
 To keep contributions consistent and maintainable, please follow these standards:
 
 - **Formatting**: We use Prettier and ESLint. Run `npm run lint` and `npm run format` before submitting.
@@ -55,18 +60,19 @@ To keep contributions consistent and maintainable, please follow these standards
 - **Hooks**: Use React hooks properly (no hooks inside conditionals or loops).
 - **DOM**: Use ReactFlow’s tools (e.g., for placing nodes on the diagram) instead of using JavaScript code that changes the webpage directly.
 
-Testing: 
-   Write simple tests to check if nodes and themes display correctly, using our testing tools (Jest and React Testing Library).
+Testing:
+Write simple tests to check if nodes and themes display correctly, using our testing tools (Jest and React Testing Library).
 
 ## Pull Requests
 
 1. **Branch** from main:
+
    ```bash
    git checkout -b fix-bug-header
    ```
 
 2. **Write clear commits**:
-Example:`feat(App): implement React Flow visualization for component schema`
+   Example:`feat(App): implement React Flow visualization for component schema`
 
 3. **Push** and open a pull request.
 
@@ -87,6 +93,7 @@ Because react-diagram-visualizer is a React application and currently does not i
 2. **Start** the **development server**:
 
    run the visualizer locally using:
+
    ```bash
    npm run dev
    ```
@@ -96,10 +103,9 @@ Because react-diagram-visualizer is a React application and currently does not i
 3. **Check** the **console** for errors or warnings  
    As you load and interact with diagrams, watch the browser console for any issues. Clear, error-free rendering indicates success.
 
-4. **Look for unexpected** visual **behavior**:  
+4. **Look for unexpected** visual **behavior**:
 
    Example Issues:
-
    - Layout issues (nodes overlapping, misaligned nodes or edges)
 
    - Missing data (e.g. props or state not appearing)
@@ -116,22 +122,22 @@ Because react-diagram-visualizer is a React application and currently does not i
 
 If you're new to contributing, here are some easy and impactful ways to get started:
 
-- Add new themes using CSS Modules  
+- Add new themes using CSS Modules
   - You can create or improve themes by editing CSS files. Just look at how class names are used in the JSX files, and add your own style variations (like light, dark, high-contrast, etc.).
 
 ---
 
-- Test different schemas from real projects  
+- Test different schemas from real projects
   - Try generating schemas using [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema), then load them into the visualizer. Check the console for any warnings or errors and confirm that all components are displayed correctly. If you find any warnings or errors, open an issue! We'd love to take a look.
 
 ---
 
-- Improve error messages  
+- Improve error messages
   - Look for places where the visualizer throws generic errors or logs unclear messages. Suggest or submit improvements that make debugging easier for users.
 
 ---
 
-- Update documentation or add examples  
+- Update documentation or add examples
   - If something was confusing while you were testing, help others by adding an explanation, editing the README, or suggesting a better example schema.
 
 ## Roadmap & Features
@@ -147,4 +153,3 @@ If you have a suggestion, open an issue or comment on an existing one.
 ## Thank you
 
 Every contribution counts. Whether it's code, feedback, or docs!
-
