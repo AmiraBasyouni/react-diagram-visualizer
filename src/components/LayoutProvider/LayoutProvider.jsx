@@ -1,7 +1,10 @@
 import React from "react";
 import ELK from "elkjs/lib/elk.bundled.js";
 //import InitialElementsContext from "../InitialElementsProvider";
-import { initialNodes, initialEdges } from "../../initialFlowElements.js";
+import { buildFlowElements } from "../../initialFlowElements.js";
+import schema from "../../schema.json";
+
+const { initialNodes, initialEdges } = buildFlowElements(schema);
 
 export const LayoutContext = React.createContext();
 

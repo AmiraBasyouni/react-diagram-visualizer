@@ -9,12 +9,19 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
-// nodes, edges, and types
-import {
-  initialNodes,
-  initialEdges,
-  nodeTypes,
-} from "../../initialFlowElements.js";
+import ComponentNode from "../ComponentNode";
+
+// nodes and edges
+import { buildFlowElements } from "../../initialFlowElements.js";
+import schema from "../../schema.json";
+
+const { initialNodes, initialEdges } = buildFlowElements(schema);
+
+// node types
+const nodeTypes = {
+  component: ComponentNode,
+  //  context: "ContextNode"
+};
 
 import { LayoutContext } from "../LayoutProvider";
 

@@ -1,9 +1,11 @@
-import schema from "./schema.json";
-import ComponentNode from "./components/ComponentNode";
+let cache = null;
 
 //-----------------------------------------nodes/edges logic
-const components = schema;
+export function buildFlowElements(components) {
+// reuse existing data if available
+if (cache) return cache;
 
+// otherwise, build data
 const position = { x: 0, y: 0 };
 
 const initialNodes = [];
@@ -36,9 +38,6 @@ Object.entries(components).forEach(([componentID, component]) => {
   });
 });
 
-const nodeTypes = {
-  component: ComponentNode,
-  //  context: "ContextNode"
-};
-
-export { initialNodes, initialEdges, nodeTypes };
+cache = { initialNodes, initialEdges };
+return cache;
+}
