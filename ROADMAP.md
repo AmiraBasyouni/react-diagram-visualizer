@@ -43,6 +43,17 @@ This file outlines the phases and tasks for building the `react-diagram-visualiz
 
 ⌛ Timeline: **completed** July 20, 2025
 
+### Stage 4
+
+🏁 Goal: set up a test suite to validate core logic, integration between components, and performance
+
+- [x] Add unit tests for schema to Flow nodes/edges transformation
+- [x] Add integration tests for ComponentNode, ReactFlow, and LayoutProvider wiring
+- [x] Add performance test for large schema rendering
+- [x] Add smoke test to ensure app renders without crashing
+
+⌛ Timeline: **completed** August 1, 2025
+
 ## Phase 2: Early Validation
 
 🏁 Goal: get the product in front of real users to see if users are able to utilize and benefit from it
@@ -60,7 +71,7 @@ This file outlines the phases and tasks for building the `react-diagram-visualiz
 - [ ] encourage contributions via [CONTRIBUTING.md](https://github.com/AmiraBasyouni/react-diagram-visualizer/blob/main/CONTRIBUTING.md) to address usability issues.
 - [ ] continue developing the MVP to fix any accessibility/usability issues
 
-⏳ Timeline **scheduled** - July 31, 2025
+⏳ Timeline **scheduled** - August 7, 2025
 
 ## Phase 3: Product-Market Fit
 
@@ -106,7 +117,7 @@ This file outlines the phases and tasks for building the `react-diagram-visualiz
 - [ ] support TypeScript (when integrated in react-diagram-schema)
 - [ ] integrate diagrams into VS Code
 
-⏳ **scheduled** - August 10, 2025
+⏳ **scheduled** - August 17, 2025
 
 ---
 

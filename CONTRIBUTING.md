@@ -60,9 +60,6 @@ To keep contributions consistent and maintainable, please follow these standards
 - **Hooks**: Use React hooks properly (no hooks inside conditionals or loops).
 - **DOM**: Use ReactFlow’s tools (e.g., for placing nodes on the diagram) instead of using JavaScript code that changes the webpage directly.
 
-Testing:
-Write simple tests to check if nodes and themes display correctly, using our testing tools (Jest and React Testing Library).
-
 ## Pull Requests
 
 1. **Branch** from main:
@@ -71,7 +68,12 @@ Write simple tests to check if nodes and themes display correctly, using our tes
    git checkout -b fix-bug-header
    ```
 
-2. **Write clear commit messages using [Conventional Commits](https://www.conventionalcommits.org/) style:**  
+2. Test your changes:
+
+- Ensure **all tests pass** before submitting (run `npm test`).
+- Add new tests when introducing features or fixing bugs.
+
+3. **Write clear commit messages using [Conventional Commits](https://www.conventionalcommits.org/) style:**  
    Use a prefix like `fix`, `feat`, or `docs`, followed by the scope (e.g., app, readme) and a brief description.
 
    Examples:
@@ -82,49 +84,76 @@ Write simple tests to check if nodes and themes display correctly, using our tes
 
 - `docs(readme): clarify theme customization steps`
 
-3. **Push** your branch and open a pull request on GitHub.
+4. **Push** your branch and open a pull request on GitHub.
 
-4. Include **screenshots or GIFs** in your pull request if your changes affect the diagram’s appearance, layout, or interactions (e.g., new node styles or zoom behavior).
+5. Include **screenshots or GIFs** in your pull request if your changes affect the diagram’s appearance, layout, or interactions (e.g., new node styles or zoom behavior).
 
 ## Testing your Changes
 
-Because react-diagram-visualizer is a React application and currently does not include automated tests or sample projects, here’s how you can manually test your changes:
+`react-diagram-visualizer` now includes an automated test suite powered by [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
 
-1. **Provide** your own **test schema**
+**Running the tests**
 
-   You can generate a schema inside a `schema.json` file using [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema), place the file in the `src/` directory of `react-diagram-visualizer` to load its content. This helps confirm that your changes work with real React code.
+- To run all tests locally:
 
-   You can also copy the sample `schema.json` from [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema)'s `README.md` to the `react-diagram-visualizer` repository's `src/` directory.
+  ```bash
+  npm test
+  ```
 
-   Note: The `schema.json` file describes your React components (e.g., names, props).
+- To run a specific test file:
 
-2. **Start** the **development server**:
+  ```bash
+  npx vitest run path/to/file.test.jsx
+  ```
 
-   run the visualizer locally using:
+- For an interactive watch mode:
+  ```bash
+  npx vitest
+  ```
+
+---
+
+**Test types included**:
+
+- Unit tests:  
+  Validate small, isolated pieces of logic (e.g., buildFlowElements).
+
+- Integration tests:  
+  Ensure multiple components work together (e.g., schema → LayoutProvider → Flow → ComponentNode).
+
+- Performance tests:  
+  Measure rendering time for large schemas.
+
+- Smoke tests:  
+  Confirm the app boots with a real schema without crashing.
+
+---
+
+**Adding new tests**
+
+- Place new test files under the `tests/` directory, following the `.test.js`/`.test.jsx` naming convention.
+
+- If adding unit tests for functions, mock only what’s necessary to isolate the logic.
+
+- For UI tests, prefer [React Testing Library](https://testing-library.com/) queries (e.g., `getByText`) over DOM selectors.
+
+- Keep performance tests in a separate `tests/performance/` subdirectory to avoid slowing down the full suite.
+
+---
+
+**Manual testing**
+
+Automated tests catch most issues, but you can still manually verify changes:
+
+1. Generate or modify a `schema.json` in `src/` (or use one from `tests/fixtures/`).
+
+2. Start the dev server:
 
    ```bash
    npm run dev
    ```
 
-   This will launch the app on localhost, where you can interactively test your updates.
-
-3. **Check** the **console** for errors or warnings  
-   As you load and interact with diagrams, watch the browser console for any issues. Clear, error-free rendering indicates success.
-
-4. **Look for unexpected** visual **behavior**:
-
-   Example Issues:
-   - Layout issues (nodes overlapping, misaligned nodes or edges)
-
-   - Missing data (e.g. props or state not appearing)
-
-   - Theme bugs (styles not applied (e.g. wrong border color))
-
-5. **Test multiple schema** structures if possible  
-   If you're working on rendering or layout logic, try schemas of different sizes or complexity. This helps ensure your update is robust across various component trees.
-
-6. Optional: **Add** a visual **screenshot**  
-   If your change affects layout or appearance, consider capturing a screenshot for your pull request. It helps reviewers understand the impact quickly.
+3. Open the app in the browser, interact with the diagram, and watch the console for warnings or errors.
 
 ## New To Open Source?
 
