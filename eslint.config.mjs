@@ -3,6 +3,7 @@ import globals from "globals";
 import pluginReact from "eslint-plugin-react";
 import json from "@eslint/json";
 import css from "@eslint/css";
+import vitest from "eslint-plugin-vitest"
 import { defineConfig } from "eslint/config";
 
 export default defineConfig([
@@ -36,4 +37,19 @@ export default defineConfig([
     language: "css/css",
     extends: ["css/recommended"],
   },
+	  {
+    files: ["**/*.test.js", "**/*.test.jsx", "**/*.test.mjs"],
+    plugins: {
+      vitest,
+    },  
+    languageOptions: {
+      globals: {
+        ...globals.vitest,
+      },  
+    },  
+    rules: {
+      ...vitest.configs.recommended.rules,
+    },  
+  },  
+
 ]);

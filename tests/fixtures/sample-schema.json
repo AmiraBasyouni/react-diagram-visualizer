@@ -1,0 +1,20 @@
+{
+  "Header::Header.jsx": {
+    "name": "Header",
+    "description": "",
+    "descendants": [],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [],
+      "context": [],
+      "constants": []
+    },
+    "location": {
+      "line": 1,
+      "filepath": "Header.jsx"
+    }
+  }
+}

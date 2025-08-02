@@ -1,0 +1,173 @@
+{
+  "App::App.jsx": {
+    "name": "App",
+    "description": "",
+    "descendants": [
+      "ToastProvider::App.jsx",
+      "ToastPlayground::App.jsx",
+      "Footer::App.jsx"
+    ],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [],
+      "context": [],
+      "constants": []
+    },
+    "location": {
+      "line": 7,
+      "filepath": "App.jsx"
+    }
+  },
+  "Footer::App.jsx": {
+    "name": "Footer",
+    "description": "",
+    "descendants": [],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [],
+      "context": [],
+      "constants": []
+    },
+    "location": {
+      "line": 16,
+      "filepath": "App.jsx"
+    }
+  },
+  "ToastProvider::App.jsx": {
+    "name": "ToastProvider",
+    "description": "",
+    "descendants": [],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [],
+      "context": [],
+      "constants": []
+    },
+    "location": {
+      "line": 20,
+      "filepath": "App.jsx"
+    }
+  },
+  "ToastShelf::App.jsx": {
+    "name": "ToastShelf",
+    "description": "",
+    "descendants": [
+      "Toast::App.jsx"
+    ],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [],
+      "context": [
+        {
+          "source": "ToastContext",
+          "values": [
+            "toastStack"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "location": {
+      "line": 24,
+      "filepath": "App.jsx"
+    }
+  },
+  "Toast::App.jsx": {
+    "name": "Toast",
+    "description": "",
+    "descendants": [],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [
+        "children",
+        "variant",
+        "toastId"
+      ],
+      "context": [
+        {
+          "source": "ToastContext",
+          "values": [
+            "dismissToast"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "location": {
+      "line": 34,
+      "filepath": "App.jsx"
+    }
+  },
+  "Button::App.jsx": {
+    "name": "Button",
+    "description": "",
+    "descendants": [],
+    "internal": {
+      "states": [],
+      "functions": []
+    },
+    "external": {
+      "props": [],
+      "context": [],
+      "constants": []
+    },
+    "location": {
+      "line": 46,
+      "filepath": "App.jsx"
+    }
+  },
+  "ToastPlayground::App.jsx": {
+    "name": "ToastPlayground",
+    "description": "",
+    "descendants": [
+      "ToastShelf::App.jsx",
+      "Button::App.jsx"
+    ],
+    "internal": {
+      "states": [
+        [
+          "message",
+          "setMessage"
+        ],
+        [
+          "variant",
+          "setVariant"
+        ]
+      ],
+      "functions": [
+        "handleFormSubmission"
+      ]
+    },
+    "external": {
+      "props": [],
+      "context": [
+        {
+          "source": "ToastContext",
+          "values": [
+            "createToast"
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "location": {
+      "line": 56,
+      "filepath": "App.jsx"
+    }
+  }
+}
