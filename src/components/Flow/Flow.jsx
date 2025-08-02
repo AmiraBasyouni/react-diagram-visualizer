@@ -11,12 +11,6 @@ import "@xyflow/react/dist/style.css";
 
 import ComponentNode from "../ComponentNode";
 
-// nodes and edges
-import { buildFlowElements } from "../../initialFlowElements.js";
-import schema from "../../schema.json";
-
-const { initialNodes, initialEdges } = buildFlowElements(schema);
-
 // node types
 const nodeTypes = {
   component: ComponentNode,
@@ -25,7 +19,7 @@ const nodeTypes = {
 
 import { LayoutContext } from "../LayoutProvider";
 
-function Flow() {
+function Flow({ initialNodes, initialEdges }) {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const { useLayout } = React.useContext(LayoutContext);
   useLayout(setNodes);
