@@ -163,6 +163,10 @@ After generating `schema.json` with [`react-diagram-schema`](https://github.com/
 
 See `react-diagram-visualizer`'s [ROADMAP.md](https://github.com/AmiraBasyouni/react-diagram-visualizer/blob/main/ROADMAP.md) for feature plans and upcoming goals.
 
+## Contributing
+
+Please visit [CONTRIBUTING.md](https://github.com/AmiraBasyouni/react-diagram-visualizer/blob/main/CONTRIBUTING.md) to learn about how you can contribute to `react-diagram-visualizer`.
+
 ## License
 
 MIT
