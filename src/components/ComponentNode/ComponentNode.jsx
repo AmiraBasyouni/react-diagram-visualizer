@@ -20,41 +20,45 @@ function ComponentNode({ data: component }) {
 
   return (
     <section ref={sectionRef} className={styles.wrapper}>
-      <h2 className={styles.title}>{component.name}</h2>
+      <h2 className={styles.title}>
+        {component.name.length > 0
+          ? component.name
+          : component.id.split("::")[0]}
+      </h2>
       {component.description && (
         <p className={styles.content}>{component.description}</p>
       )}
 
-      {(component.internal.states.length > 0 ||
-        component.internal.functions.length > 0) && (
+      {(component.internal?.states.length > 0 ||
+        component.internal?.functions.length > 0) && (
         <h3 className={styles.subtitle}>INTERNAL</h3>
       )}
 
-      {component.internal.states.map((state) => (
+      {component.internal?.states.map((state) => (
         <p key={state} className={styles.content}>
           {" "}
           {`- [${state}]`}{" "}
         </p>
       ))}
-      {component.internal.functions.map((func) => (
+      {component.internal?.functions.map((func) => (
         <p key={func} className={styles.content}>
           {" "}
           {`- ${func}()`}
         </p>
       ))}
 
-      {(component.external.props.length > 0 ||
-        component.external.context.length > 0) && (
+      {(component.external?.props.length > 0 ||
+        component.external?.context.length > 0) && (
         <h3 className={styles.subtitle}>EXTERNAL</h3>
       )}
 
-      {component.external.props.map((prop) => (
+      {component.external?.props.map((prop) => (
         <p key={prop} className={styles.content}>
           {" "}
           {`+ ${prop}`}
         </p>
       ))}
-      {component.external.context.map(({ values }) =>
+      {component.external?.context.map(({ values }) =>
         values.map((value) => (
           <p key={value} className={styles.content}>{`+C ${value}`}</p>
         )),

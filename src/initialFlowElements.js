@@ -15,7 +15,7 @@ export default function buildFlowElements(components) {
 
   const initialEdges = [];
   Object.entries(components).forEach(([componentID, component]) => {
-    component.descendants.forEach((descendantID) => {
+    component.descendants?.forEach((descendantID) => {
       /* if a descendant has an invalid file path, fail gracefully */
       const filePath = descendantID.split("::")[1];
       if (!filePath || filePath === "undefined" || filePath === "null") {
