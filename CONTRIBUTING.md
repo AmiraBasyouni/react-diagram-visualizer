@@ -1,6 +1,6 @@
 # Contributing to react-diagram-visualizer
 
-Thank you for your interest in contributing! 🎉  
+Thank you for your interest in contributing! :tada:  
 `react-diagram-visualizer` is a standalone CLI tool that generates a JSON schema from React source code, designed to integrate with [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema) for visualizing [ReactFlow](https://reactflow.dev/)-based UML-style diagrams. We aim to make React component architecture more visual, structured, and developer-friendly, and your help can make a big difference.
 
 ## How To Get Started
