@@ -1,6 +1,6 @@
 # Contributing to react-diagram-visualizer
 
-Thank you for your interest in contributing! 🎉  
+Thank you for your interest in contributing! :tada:  
 `react-diagram-visualizer` is a standalone CLI tool that generates a JSON schema from React source code, designed to integrate with [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema) for visualizing [ReactFlow](https://reactflow.dev/)-based UML-style diagrams. We aim to make React component architecture more visual, structured, and developer-friendly, and your help can make a big difference.
 
 ## How To Get Started
@@ -87,6 +87,43 @@ To keep contributions consistent and maintainable, please follow these standards
 4. **Push** your branch and open a pull request on GitHub.
 
 5. Include **screenshots or GIFs** in your pull request if your changes affect the diagram’s appearance, layout, or interactions (e.g., new node styles or zoom behavior).
+
+## Sign-off (DCO)
+
+This project enforces the [Developer Certificate of Origin (DCO)](https://developercertificate.org/).
+All commits must be signed off to confirm you have the right to submit the code.
+
+**How to sign off a commit?**
+
+When making commits, use the `-s` flag:
+
+```bash
+git commit -s -m "feat: add new schema flag"
+```
+
+This automatically adds a `Signed-off-by: Your Name <email>` line to the commit message.
+
+**How to fix a missing sign-off?**
+
+If you forgot to sign off, you can amend the most recent commit:
+
+```bash
+git commit --amend -s --no-edit
+git push --force-with-lease
+```
+
+For multiple commits in a branch, you can rebase with:
+
+```bash
+git rebase -i origin/main --exec "git commit --amend -s --no-edit"
+git push --force-with-lease
+```
+
+**Email Tip**
+
+If you use GitHub’s “Keep my email address private” setting, make sure your sign-off email matches your `username@users.noreply.github.com` address.
+
+Pull requests cannot be merged until all commits include a valid sign-off.
 
 ## Testing your Changes
 
