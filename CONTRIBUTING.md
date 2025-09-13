@@ -88,6 +88,43 @@ To keep contributions consistent and maintainable, please follow these standards
 
 5. Include **screenshots or GIFs** in your pull request if your changes affect the diagram’s appearance, layout, or interactions (e.g., new node styles or zoom behavior).
 
+## Sign-off (DCO)
+
+This project enforces the [Developer Certificate of Origin (DCO)](https://developercertificate.org/).
+All commits must be signed off to confirm you have the right to submit the code.
+
+**How to sign off a commit?**
+
+When making commits, use the `-s` flag:
+
+```bash
+git commit -s -m "feat: add new schema flag"
+```
+
+This automatically adds a `Signed-off-by: Your Name <email>` line to the commit message.
+
+**How to fix a missing sign-off?**
+
+If you forgot to sign off, you can amend the most recent commit:
+
+```bash
+git commit --amend -s --no-edit
+git push --force-with-lease
+```
+
+For multiple commits in a branch, you can rebase with:
+
+```bash
+git rebase -i origin/main --exec "git commit --amend -s --no-edit"
+git push --force-with-lease
+```
+
+**Email Tip**
+
+If you use GitHub’s “Keep my email address private” setting, make sure your sign-off email matches your `username@users.noreply.github.com` address.
+
+Pull requests cannot be merged until all commits include a valid sign-off.
+
 ## Testing your Changes
 
 `react-diagram-visualizer` now includes an automated test suite powered by [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/).
