@@ -14,6 +14,9 @@
     "lint": "npx eslint . --fix",
     "format": "npx prettier . --write"
   },
+  "bin": {
+    "visualize": "./src/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AmiraBasyouni/react-diagram-visualizer.git"
