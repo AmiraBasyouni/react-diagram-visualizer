@@ -1,7 +1,7 @@
 {
   "name": "react-diagram-visualizer",
   "version": "0.1.0",
-  "description": "Turn JSON schemas into interactive diagrams",
+  "description": "Turn a React codebase into an interactive diagram",
   "type": "module",
   "scripts": {
     "predev": "rimraf .parcel-cache dist",
@@ -15,8 +15,18 @@
     "format": "npx prettier . --write"
   },
   "bin": {
-    "visualize": "./src/cli.js"
+    "react-diagram-visualizer": "./src/cli.js"
   },
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "ROADMAP.md",
+    "CONTRIBUTING.md",
+    "assets",
+    "src",
+    "public",
+    "package.json"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AmiraBasyouni/react-diagram-visualizer.git"
@@ -52,15 +62,16 @@
     "globals": "^16.3.0",
     "jsdom": "^26.1.0",
     "new-component": "^6.0.0",
-    "parcel": "^2.15.4",
     "prettier": "3.6.2",
     "rimraf": "^6.0.1",
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "parcel": "^2.15.4",
     "@xyflow/react": "^12.8.1",
     "elkjs": "^0.10.0",
     "react": "^19.1.0",
+    "react-diagram-schema": "^0.3.3",
     "react-dom": "^19.1.0"
   }
 }
