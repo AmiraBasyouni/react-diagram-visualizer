@@ -123,14 +123,17 @@ The **external** list represents props, and the symbol **+C** represents context
 
 ## Quick Start
 
-<p align="center">
-  <video width="720" controls muted playsinline>
-    <!-- repo page: embedded demo video -->
-    <source src="https://raw.githubusercontent.com/AmiraBasyouni/react-diagram-visualizer/main/assets/quick-demo.mp4" type="video/mp4">
-    <!-- package page: fallback to a link, this is an npmjs.com alternative -->
-    <a href="https://raw.githubusercontent.com/AmiraBasyouni/react-diagram-visualizer/main/assets/quick-demo.mp4">Watch the demo</a>
+<figure>
+  <video width="720" controls muted playsinline aria-describedby="demo-desc">
+    <!-- embedded demo video -->
+    <source src="assets/quick-demo.mp4" type="video/mp4">
   </video>
-</p>
+  <figcaption id="demo-desc">
+    20-second demo: run <code>npx react-diagram-visualizer ./ App --quiet</code>, Parcel prints a local URL, right-click the URL and Open Link, the browser opens an interactive ReactFlow diagram, move a node, then zoom out.
+    &nbsp;|&nbsp;
+    <a href="assets/quick-demo.mp4">Watch the MP4</a>
+  </figcaption>
+</figure>
 
 If your entry component is default exported,  
 run `npx react-diagram-visualizer ./` in the entry component's directory.
