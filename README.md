@@ -91,7 +91,7 @@ function App({ children, propA, propB, propC }) {
 
 **Example Diagram Output:**
 
-![ReactFlow Diagram](assets/diagram-preview_v2.png)  
+![ReactFlow Diagram showing component hierarchy](assets/diagram-preview_v2.png)  
 The picture previews an interactive UML-style diagram showing component metadata, rendered using [ReactFlow](https://reactflow.dev).
 
 Each node represents a React component. Nested components (like B defined inside App) are detected and visualized.  
@@ -119,27 +119,26 @@ The **external** list represents props, and the symbol **+C** represents context
 
 **Node.js Version:**
 
-- Node.js 18+ recommended (use nvm use 18 if using nvm)
+- Node.js 18+ recommended (use `nvm use 18` if needed)
 
 ## Quick Start
 
-<figure>
-  <video width="720" controls muted playsinline aria-describedby="demo-desc">
-    <!-- embedded demo video -->
-    <source src="assets/quick-demo.mp4" type="video/mp4">
-  </video>
-  <figcaption id="demo-desc">
-    20-second demo: run <code>npx react-diagram-visualizer ./ App --quiet</code>, Parcel prints a local URL, right-click the URL and Open Link, the browser opens an interactive ReactFlow diagram, move a node, then zoom out.
-    &nbsp;|&nbsp;
-    <a href="assets/quick-demo.mp4">Watch the MP4</a>
-  </figcaption>
-</figure>
+![Quick demo](assets/quick-demo.gif)  
+_A short preview showing `react-diagram-visualizer` generating a diagram from a React project._  
+[_▶️ Watch the quick demo in full resolution on YouTube_](https://youtu.be/I9kxUosEFdU)
 
 If your entry component is default exported,  
-run `npx react-diagram-visualizer ./` in the entry component's directory.
+run the following command in the entry component's directory:
 
-Otherwise, explicitly specify the component you'd like to visualize.  
-For example: `npx react-diagram-visualizer ./ Button`
+```bash
+npx react-diagram-visualizer ./
+```
+
+Otherwise, explicitly specify the component you'd like to visualize. For example:
+
+```bash
+npx react-diagram-visualizer ./ Button
+```
 
 ## Get Started
 
