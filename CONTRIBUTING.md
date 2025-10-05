@@ -1,7 +1,7 @@
 # Contributing to react-diagram-visualizer
 
 Thank you for your interest in contributing! :tada:  
-`react-diagram-visualizer` is a standalone CLI tool that generates a JSON schema from React source code, designed to integrate with [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema) for visualizing [ReactFlow](https://reactflow.dev/)-based UML-style diagrams. We aim to make React component architecture more visual, structured, and developer-friendly, and your help can make a big difference.
+`react-diagram-visualizer` is part of the react-diagram tool chain. It runs the CLI tool, [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema), and visualizes the JSON schema output in a UML-style diagram using [ReactFlow](https://reactflow.dev/). We aim to make React component architecture more visual, structured, and developer-friendly, and your help can make a big difference.
 
 ## How To Get Started
 
@@ -19,9 +19,21 @@ Thank you for your interest in contributing! :tada:
    git clone https://github.com/<your-username>/react-diagram-visualizer.git
    ```
 
-3. Install dependencies
+3. Navigate to the root folder:
+
+   ```bash
+   cd react-diagram-visualizer
+   ```
+
+4. Install required dependencies:
+
    ```bash
    npm install
+   ```
+
+5. Create a symbolic link:
+   ```bash
+   npm link
    ```
 
 ## How You Can Contribute
@@ -47,7 +59,7 @@ Before starting major work:
 - **Open an issue** describing your proposal.
 - If relevant, share an example schema and how your change would improve the output.
 
-Small fixes (typos, minor code tweaks) can skip this step.
+Small fixes (for example typos and minor code tweaks) can skip this step.
 
 ## Coding Standards
 
@@ -109,6 +121,9 @@ If you forgot to sign off, you can amend the most recent commit:
 
 ```bash
 git commit --amend -s --no-edit
+```
+
+```bash
 git push --force-with-lease
 ```
 
@@ -116,6 +131,9 @@ For multiple commits in a branch, you can rebase with:
 
 ```bash
 git rebase -i origin/main --exec "git commit --amend -s --no-edit"
+```
+
+```bash
 git push --force-with-lease
 ```
 
@@ -182,9 +200,19 @@ Pull requests cannot be merged until all commits include a valid sign-off.
 
 Automated tests catch most issues, but you can still manually verify changes:
 
-1. Generate or modify a `schema.json` in `src/` (or use one from `tests/fixtures/`).
+1. Run the CLI in a react repository (include the entry component name whenever it has not been default exported):
 
-2. Start the dev server:
+   ```bash
+   react-diagram-visualizer ./ [rootComponentName]
+   ```
+
+   or use one of the schema test fixtures in `./tests/fixtures/`
+
+   ```bash
+   cp ./tests/fixtures/sample-schema.json ./src/
+   ```
+
+2. (optional) If using a test fixture, start the dev server by running:
 
    ```bash
    npm run dev

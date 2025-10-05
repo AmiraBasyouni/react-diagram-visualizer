@@ -58,6 +58,16 @@ stage 3 **completed** on July 20, 2025
 :hourglass: **Timeline**  
 stage 4 **completed** on August 1, 2025
 
+### Stage 5
+
+:checkered_flag: Goal: run the react-diagram tool chain end-to-end with one command
+
+- [x] install [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema) as a major dependency
+- [x] generate the schema and run the visualizer all in one command
+
+:hourglass: **Timeline**
+stage 5 **completed** on September 27, 2025
+
 ## Phase 2: Early Validation
 
 :checkered_flag: Goal: get the product in front of real users to see if users are able to utilize and benefit from it
@@ -76,7 +86,7 @@ stage 4 **completed** on August 1, 2025
 - [ ] continue developing the MVP to fix any accessibility/usability issues
 
 :hourglass_flowing_sand: **Timeline**  
-phase 2 **scheduled** for October 1, 2025
+phase 2 **scheduled** for October 10, 2025
 
 ## Phase 3: Product-Market Fit
 
@@ -103,7 +113,7 @@ phase 2 **scheduled** for October 1, 2025
 ---
 
 2. Integration Features:
-   - [ ] Integrate `react-diagram-schema` as a dependency to generate schemas directly from React source code within the visualizer (you won't need to install both repos separately)
+   - [x] Integrate `react-diagram-schema` as a dependency to generate schemas directly from React source code within the visualizer (you won't need to install both repos separately)
    - [ ] Save, export, and share diagrams
    - [ ] Allow importing schemas from multiple sources:
      - [ ] src/schema.json (default)
