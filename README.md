@@ -14,12 +14,8 @@ A standalone tool that visualizes your React codebase as an interactive UML-styl
 - Planning to add performance metrics for 50+ component diagrams (e.g., rendering time) post-MVP testing.
 - For more information about post-MVP and planned features, visit [`ROADMAP.md`](https://github.com/AmiraBasyouni/react-diagram-visualizer/blob/main/ROADMAP.md).
 
-## Example Usage
+## Arguments
 
-**Navigate to your React Repository,**  
-cd into your React repository's directory.
-
-**:house: Start Visualizing,**  
 Run the visualizer with the following arguments:
 
 1. **(required)** `<entryDirectory>` or `<entryFile>`  
@@ -34,7 +30,9 @@ Run the visualizer with the following arguments:
    in the entry directory.  
    Example: `App`
 
-Example:  
+## Example Usage
+
+**Example Command:**  
 `npx react-diagram-visualizer ./src/components App`
 
 **Example Input File Content:**
@@ -92,11 +90,11 @@ function App({ children, propA, propB, propC }) {
 **Example Diagram Output:**
 
 ![ReactFlow Diagram showing component hierarchy](assets/diagram-preview_v2.png)  
-The picture previews an interactive UML-style diagram showing component metadata, rendered using [ReactFlow](https://reactflow.dev).
+_The picture previews an interactive UML-style diagram showing component metadata, rendered using [ReactFlow](https://reactflow.dev)._
 
-Each node represents a React component. Nested components (like B defined inside App) are detected and visualized.  
-The **internal** list represents internally defined data (e.g. `[state, stateSetter]` and `nameOfFunction()`).  
-The **external** list represents props, and the symbol **+C** represents context props.
+- Each node represents a React component. Nested components (like B defined inside App) are detected and visualized.
+- The **internal** list represents internally defined data (e.g. `[state, stateSetter]` and `nameOfFunction()`).
+- The **external** list represents props, and the symbol **+C** represents context props.
 
 **Diagram interactions (MVP):**
 
