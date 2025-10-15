@@ -28,6 +28,9 @@ const targetSchemaPath = path.join(visualizerRoot, "src", "schema.json");
 const args = process.argv.slice(2);
 let schemaFilePath = null;
 
+// silence react-diagram-schema's console log messages
+args.push("--quiet");
+
 // runs CLI logic of react-diagram-schema and starts up the visualizer
 (async () => {
   try {
@@ -43,9 +46,15 @@ let schemaFilePath = null;
     process.exit(0);
   }
   // cli-core already wrote schema.json somewhere
-  // copy or write it into the visualizer's src folder:
+  // move it into the visualizer's src folder:
   if (path.resolve(targetSchemaPath) != path.resolve(schemaFilePath)) {
-    fs.copyFileSync(schemaFilePath, targetSchemaPath);
+    try {
+      fs.renameSync(schemaFilePath, targetSchemaPath);
+    } catch {
+      throw new Error(
+        "(cli): Error, visualizer renameSync operation was unsuccessful",
+      );
+    }
   }
 
   // launch visualizer via Parcel
