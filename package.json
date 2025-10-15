@@ -1,6 +1,6 @@
 {
   "name": "react-diagram-visualizer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Turn a React codebase into an interactive diagram",
   "type": "module",
   "scripts": {
