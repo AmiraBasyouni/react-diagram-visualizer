@@ -1,18 +1,42 @@
 # react-diagram-visualizer
 
-A standalone tool that visualizes your React codebase as an interactive UML-style diagram powered by [ReactFlow](https://reactflow.dev/).
+A tool to visualize React applications through an interactive UML-style architectural diagram, powered by [ReactFlow](https://reactflow.dev/).
 
-**:flashlight: What Makes It Unique:**
+**What This Tool Offers:**
 
-- Unlike [Mermaid](https://mermaid.js.org/), `react-diagram-visualizer` specializes in React component hierarchies, leveraging schemas from [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema).
+- Unlike manual tools like [Mermaid](https://mermaid.js.org/) and [Draw.io](https://app.diagrams.net/), `react-diagram-visualizer` can auto-generate an informative diagram in a single command.
+- Generates diagrams through static analysis of your source files, no code execution required.
+- Visualizes React component hierarchies and component metadata (states, functions, and props).
 
-- Seamlessly integrates with [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema)’s schema, supporting [`elkjs`](https://github.com/kieler/elkjs) layouts for hierarchical, scalable diagrams.
+**Enterprise Features**:
 
-**:sparkles: Enterprise Features**:
-
-- Planning to support node grouping by filepath and collapsible nodes for large codebases (50+ components), using [`elkjs`](https://github.com/kieler/elkjs) layouts.
+- Planning to support node grouping by file path and collapsible nodes for large codebases (50+ components), using [`elkjs`](https://github.com/kieler/elkjs) layouts.
 - Planning to add performance metrics for 50+ component diagrams (e.g., rendering time) post-MVP testing.
 - For more information about post-MVP and planned features, visit [`ROADMAP.md`](https://github.com/AmiraBasyouni/react-diagram-visualizer/blob/main/ROADMAP.md).
+
+## Quick Start
+
+[_▶️ Visit this link to watch the quick demo in full resolution on YouTube_](https://youtu.be/I9kxUosEFdU)
+![Quick demo](assets/quick-demo.gif)  
+_A short demo where `react-diagram-visualizer` generates an architectural diagram of a React application._
+
+> In the short demo, the visualizer was given an App component within the current directory. The visualizer constructed the dependency tree, collected the metadata of all the components, and presented a UML-styled architectural diagram of the React application.
+
+> Note, the App component helped us visualize the entire application. We could have targeted a different component, like Button or ToastShelf, to visualize only specific parts of that application.
+
+To target a component that is default exported,  
+run this command in the component's directory:
+
+```bash
+npx react-diagram-visualizer ./
+```
+
+To target a component that is not default exported,  
+you must include the name of the component (e.g. Button):
+
+```bash
+npx react-diagram-visualizer ./ Button
+```
 
 ## Arguments
 
@@ -23,12 +47,12 @@ Run the visualizer with the following arguments:
    Example: `./src/` or `./src/index.js`
 
 2. _(optional)_ `[rootComponentName]`  
-   Name of the root React component defined in the entry file.  
-   If omitted, the tool falls back to the default export,  
-   either from the entry file (if `<entryFile>` was provided)  
-   or an index file (`index.tsx`, `index.ts`, `index.jsx`, or `index.js`)
-   in the entry directory.  
-   Example: `App`
+   Name of the React component you'd like to target for visualization.  
+   Example: `App`  
+   If omitted, the tool tries to fall back on a default exported function.  
+   The default export can be derived from the `<entrydirectory>`  
+   (by searching index files: `index.tsx`, `index.ts`, `index.jsx`, and `index.js`)  
+   or the default export can be derived from the `<entryFile>`.
 
 ## Example Usage
 
@@ -90,11 +114,16 @@ function App({ children, propA, propB, propC }) {
 **Example Diagram Output:**
 
 ![ReactFlow Diagram showing component hierarchy](assets/diagram-preview_v2.png)  
-_The picture previews an interactive UML-style diagram showing component metadata, rendered using [ReactFlow](https://reactflow.dev)._
+_An image that previews an interactive UML-style diagram that contains component metadata rendered using [ReactFlow](https://reactflow.dev)._
 
-- Each node represents a React component. Nested components (like B defined inside App) are detected and visualized.
+**Reading The Diagram:**
+
+- Each node represents a React component.
 - The **internal** list represents internally defined data (e.g. `[state, stateSetter]` and `nameOfFunction()`).
-- The **external** list represents props, and the symbol **+C** represents context props.
+- The **external** list represents props. The **+C** symbol represents props derived through context (aka context props).
+
+> Special Cases:  
+> If a nested function starts with a capital letter (e.g., B inside App), it is treated as both an internal function and a component node. Functions nested inside those components (like C inside B) are listed as internal functions but do not become separate component nodes.
 
 **Diagram interactions (MVP):**
 
@@ -110,37 +139,23 @@ _The picture previews an interactive UML-style diagram showing component metadat
 
 **Project Dependencies:**
 
-- [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema) for generating the metadata
-- [`elkjs`](https://github.com/kieler/elkjs) for generating the layout
-- [`ReactFlow`](https://reactflow.dev) for generating the diagram
-- [`parcel`](https://parceljs.org/) for hosting the diagram locally on your machine
+- [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema) for generating the metadata.
+- [`elkjs`](https://github.com/kieler/elkjs) for constructing the layout.
+- [`ReactFlow`](https://reactflow.dev) for viewing the diagram.
+- [`parcel`](https://parceljs.org/) for hosting the diagram locally on your machine.
 
 **Node.js Version:**
 
 - Node.js 18+ recommended (use `nvm use 18` if needed)
 
-## Quick Start
+**Unique Features:**
 
-![Quick demo](assets/quick-demo.gif)  
-_A short preview showing `react-diagram-visualizer` generating a diagram from a React project._  
-[_▶️ Watch the quick demo in full resolution on YouTube_](https://youtu.be/I9kxUosEFdU)
-
-If your entry component is default exported,  
-run the following command in the entry component's directory:
-
-```bash
-npx react-diagram-visualizer ./
-```
-
-Otherwise, explicitly specify the component you'd like to visualize. For example:
-
-```bash
-npx react-diagram-visualizer ./ Button
-```
+- Seamlessly integrates with and leverages schemas from [`react-diagram-schema`](https://github.com/AmiraBasyouni/react-diagram-schema).
+- Supports [`elkjs`](https://github.com/kieler/elkjs) layouts for hierarchical, scalable diagrams.
 
 ## Get Started
 
-1. Install globally:
+1. Install the most recent version globally:
    ```bash
    npm install -g react-diagram-visualizer
    ```
@@ -159,16 +174,16 @@ npx react-diagram-visualizer ./ Button
    react-diagram-visualizer ./ App
    ```
 
-   **Tip:**  
-   if you'd like to shorten the `react-diagram-visualizer` command, you can create an alias by running:
+   > **Tip:**  
+   > If you'd like to shorten the `react-diagram-visualizer` command, you can create an alias by running:
 
    ```bash
    echo "alias visualize='react-diagram-visualizer'" >> ~/.bashrc
    ```
 
-   or replace `~/.bashrc` with `~/.zshrc` depending on your terminal environment.  
-   Then, restart the terminal and run the visualizer using the format  
-   `visualize <entryDirectory> [rootComponent]` as shown above.
+   > Replace `~/.bashrc` with `~/.zshrc` depending on your terminal environment.  
+   > Restart the terminal and run the visualizer using your alias.  
+   > Example: `visualize <entryDirectory> [rootComponent]`
 
 ---
 
