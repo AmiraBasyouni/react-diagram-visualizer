@@ -16,7 +16,7 @@ A tool to visualize React applications through an interactive UML-style architec
 
 ## Quick Start
 
-[_▶️ Visit this link to watch the quick demo in full resolution on YouTube_](https://youtu.be/I9kxUosEFdU)
+[_▶️ Visit this link to watch the quick demo in full resolution on YouTube_](https://youtu.be/kjlBxUJy4xs)
 ![Quick demo](assets/quick-demo.gif)  
 _A short demo where `react-diagram-visualizer` generates an architectural diagram of a React application._
 
