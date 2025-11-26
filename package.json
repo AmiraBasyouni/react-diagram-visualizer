@@ -1,6 +1,6 @@
 {
   "name": "react-diagram-visualizer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Turn a React codebase into an interactive diagram",
   "type": "module",
   "scripts": {
@@ -15,7 +15,7 @@
     "format": "npx prettier . --write"
   },
   "bin": {
-    "react-diagram-visualizer": "./src/cli.js"
+    "react-diagram-visualizer": "src/cli.js"
   },
   "files": [
     "README.md",
