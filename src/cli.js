@@ -23,6 +23,9 @@ const visualizerRoot = path.resolve(__dirname, "..");
 // write into this package's ./src/schema.json
 const targetSchemaPath = path.join(visualizerRoot, "src", "schema.json");
 
+// Capture actual cwd before any monorepo magic
+const actualCwd = process.env.INIT_CWD || process.cwd();
+
 // args: stores the CLI user input
 // schemaFilePath: will store the relative file path of the schema
 const args = process.argv.slice(2);
@@ -34,7 +37,7 @@ args.push("--quiet");
 // runs CLI logic of react-diagram-schema and starts up the visualizer
 (async () => {
   try {
-    schemaFilePath = await runCli(args); // if runCli is sync, this just returns instantly
+    schemaFilePath = await runCli(args, actualCwd); // if runCli is sync, this just returns instantly
   } catch (err) {
     console.error(err?.message || err);
     process.exit(1);

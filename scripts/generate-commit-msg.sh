@@ -16,7 +16,7 @@ DIFF=$(git diff --cached)
 ESCAPED_DIFF=$(printf '%s' "$DIFF" | jq -Rs .)
 
 # Prepare prompt for Claude with conventional commits and bullet-list body
-PROMPT="Analyze the following git diff for a React project and suggest a commit message in the conventional commits format (e.g., 'feat: description', 'fix: description'). Include a commit body as a bullet list if the changes are complex or involve multiple tasks; otherwise, keep it concise. Return only the commit message text, without markdown, code blocks, or explanations:\n\n$ESCAPED_DIFF"
+PROMPT="Analyze the following git diff for a React project and suggest a commit message in the conventional commits format (e.g., 'feat: description', 'fix: description'). Include a commit body as a dashed list if the changes are complex or involve multiple tasks; otherwise, keep it concise. Return only the commit message text, without markdown, code blocks, or explanations:\n\n$ESCAPED_DIFF"
 
 # Call anthropic API with curl
 RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
