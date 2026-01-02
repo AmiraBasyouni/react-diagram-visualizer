@@ -2,6 +2,8 @@
 export default function buildFlowElements(components) {
   // otherwise, build data
   const position = { x: 0, y: 0 };
+  const count = {};
+  // count will store the number of times each component is paired with a parent.
 
   const initialNodes = [];
   Object.entries(components).forEach(([componentID, component]) => {
@@ -11,6 +13,8 @@ export default function buildFlowElements(components) {
       type: "component",
       position,
     });
+    count[componentID] = 0;
+    // initially, each component is rendered once and not assigned a parent (i.e. no edges exist yet).
   });
 
   const initialEdges = [];
@@ -23,12 +27,37 @@ export default function buildFlowElements(components) {
           `react-diagram-visualizer: the file path of descendant "${descendantID}" whose parent is "${componentID}" is invalid. The descendant will be omitted from the diagram.`,
         );
       } else {
-        /* otherwise, create an edge connecting the component with its descendant */
+        // otherwise,
+
+        const hasParent = count[descendantID] > 0;
+        // when we'd like to form an edge between two nodes (i.e. a component and its descendant),
+        // form a pair with the parentless descendant.
+        // if the descendant has a parent, duplicate the descendant and give the duplicate a new ID
+        // (the duplicate will be our parentless descendant).
+
+        // create a descendant ID
+        const descendantID_Num = hasParent
+          ? descendantID + `_${count[descendantID]}`
+          : descendantID;
+
+        if (hasParent) {
+          // duplicate the descendant (to get a parentless node)
+          initialNodes.push({
+            id: descendantID_Num,
+            data: { id: descendantID_Num, ...components[descendantID] },
+            type: "component",
+            position,
+          });
+        }
+
+        // create an edge connecting this component with its descendant
         initialEdges.push({
-          id: `${componentID}->${descendantID}`,
+          id: `${componentID}->${descendantID_Num}`,
           source: componentID,
-          target: descendantID,
+          target: descendantID_Num,
         });
+
+        count[descendantID] = count[descendantID] + 1;
       }
     });
   });
