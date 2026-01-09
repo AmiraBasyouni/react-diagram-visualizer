@@ -1,12 +1,7 @@
 import React from "react";
 
 // ReactFlow tooling: components/css
-import {
-  ReactFlow,
-  ReactFlowProvider,
-  Background,
-  useNodesState,
-} from "@xyflow/react";
+import { ReactFlow, ReactFlowProvider, useNodesState } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 
 import ComponentNode from "../ComponentNode";
@@ -32,9 +27,7 @@ function Flow({ initialNodes, initialEdges }) {
           onNodesChange={onNodesChange}
           edges={initialEdges}
           nodeTypes={nodeTypes}
-        >
-          <Background variant="lines" />
-        </ReactFlow>
+        ></ReactFlow>
       </div>
     </ReactFlowProvider>
   );

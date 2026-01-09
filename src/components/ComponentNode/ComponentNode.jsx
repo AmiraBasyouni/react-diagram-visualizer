@@ -19,7 +19,10 @@ function ComponentNode({ data: component }) {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.wrapper}>
+    <section
+      ref={sectionRef}
+      className={`${styles.wrapper} ${component.isEntryComponent ? styles.entryComponent : undefined}`}
+    >
       <h2 className={styles.title}>
         {component.name.length > 0
           ? component.name
