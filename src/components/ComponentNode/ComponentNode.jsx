@@ -49,7 +49,7 @@ function ComponentNode({ data: component }) {
 
       {(component.external?.props.length > 0 ||
         component.external?.context.length > 0) && (
-        <h3 className={styles.subtitle}>EXTERNAL</h3>
+        <h3 className={styles.subtitle}>INPUT</h3>
       )}
 
       {component.external?.props.map((prop) => (

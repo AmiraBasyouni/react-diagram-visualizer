@@ -120,7 +120,7 @@ _An image that previews an interactive UML-style diagram that contains component
 
 - Each node represents a React component.
 - The **internal** list represents internally defined data (e.g. `[state, stateSetter]` and `nameOfFunction()`).
-- The **external** list represents props. The **+C** symbol represents props derived through context (aka context props).
+- The **input** list represents props. The **+C** symbol represents props derived through context (aka context props).
 
 > Special Cases:  
 > If a nested function starts with a capital letter (e.g., B inside App), it is treated as both an internal function and a component node. Functions nested inside those components (like C inside B) are listed as internal functions but do not become separate component nodes.
