@@ -71,7 +71,7 @@
     "@xyflow/react": "^12.8.1",
     "elkjs": "^0.10.0",
     "react": "^19.1.0",
-    "react-diagram-schema": "^0.3.7",
+    "react-diagram-schema": "^0.3.8",
     "react-dom": "^19.1.0"
   }
 }
