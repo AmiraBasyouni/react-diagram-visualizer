@@ -6,8 +6,8 @@
    */
   border: var(--xy-node-border-default);
   border-radius: var(--xy-node-border-radius-default);
-  border-color: #d9d9d9;
-  box-shadow: 0px 0px 0px 4px var(--xy-theme-color-focus);
+  border-color: #bddaec;
+  /*box-shadow: 0px 0px 0px 4px var(--xy-theme-color-focus);*/
   background-color: var(--xy-node-background-color-default);
   color: var(--xy-node-color, var(--xy-node-color-default));
 }
@@ -18,7 +18,7 @@
 
 .title {
   color: #383838;
-  background-color: #d3ebf2;
+  background-color: #deeffa;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
@@ -39,3 +39,22 @@
   padding-right: 12px;
   padding-bottom: 1px;
 }
+
+.entryComponent > h2 {
+  color: white;
+  background-color: black;
+}
+
+.entryComponent {
+  border-color: #131419;
+}
+
+/* PLANNED THEME
+ * DarkMode
+ * Background's background-color: #323232
+ * h2 (title)'s background-color: #eceff2
+ * section text's color: white
+ * section's background-color: black
+ * entryComponent's background-color: inverted
+ * entryComponent text's color: inverted
+ */
